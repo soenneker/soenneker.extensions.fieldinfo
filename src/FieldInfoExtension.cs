@@ -15,6 +15,6 @@ public static class FieldInfoExtension
     [Pure]
     public static bool IsConstant(this System.Reflection.FieldInfo field)
     {
-        return field is { IsLiteral: true, IsInitOnly: false };
+        return field.IsLiteral;
     }
 }
