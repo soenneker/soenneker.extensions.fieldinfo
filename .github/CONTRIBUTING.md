@@ -1,4 +1,4 @@
-# Contributing to Soenneker.Extensions.FieldInfo
+﻿# Contributing to Soenneker.Extensions.FieldInfo
 
 We're excited that you're interested in contributing!
 
