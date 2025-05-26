@@ -1,5 +1,5 @@
 ﻿using Soenneker.Extensions.FieldInfo.Tests.Dtos;
-using FluentAssertions;
+using AwesomeAssertions;
 using Xunit;
 
 namespace Soenneker.Extensions.FieldInfo.Tests;
