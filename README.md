@@ -4,7 +4,7 @@
 [![](https://img.shields.io/github/actions/workflow/status/soenneker/soenneker.extensions.fieldinfo/codeql.yml?label=CodeQL&style=for-the-badge)](https://github.com/soenneker/soenneker.extensions.fieldinfo/actions/workflows/codeql.yml)
 
 # ![](https://user-images.githubusercontent.com/4441470/224455560-91ed3ee7-f510-4041-a8d2-3fc093025112.png) Soenneker.Extensions.FieldInfo
-A collection of helpful FieldInfo (Reflection) extension methods.
+Answers whether reflection metadata represents a compile-time constant.
 
 ## Installation
 
@@ -12,15 +12,13 @@ A collection of helpful FieldInfo (Reflection) extension methods.
 dotnet add package Soenneker.Extensions.FieldInfo
 ```
 
-## Quick start
+## Usage
 
 ```csharp
 using Soenneker.Extensions.FieldInfo;
 
-// Given an existing System.Reflection.FieldInfo named field:
-var result = field.IsConstant();
+FieldInfo field = typeof(HttpStatusCode).GetField(nameof(HttpStatusCode.OK))!;
+bool constant = field.IsConstant(); // true
 ```
 
-## Common operations
-
-- `IsConstant()` - Determines whether the specified field is a constant.
+`IsConstant()` returns the field's `IsLiteral` flag. It is true for `const` fields and enum members, but false for `static readonly` fields. The `FieldInfo` must be non-null.
